@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Website</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            background-color: #f0f0f0;
+            margin: 0;
+            padding: 20px;
+        }
+        h1 {
+            margin-bottom: 20px;
+        }
+        .links {
+            margin-bottom: 30px;
+        }
+        .links a {
+            display: inline-block;
+            margin: 0 15px;
+            padding: 10px 15px;
+            background-color: #333;
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+        }
+        .links a:hover {
+            background-color: #555;
+        }
+        #catContainer {
+            width: 200px;
+            height: 200px;
+            position: relative;
+        }
+        .cat {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            background-color: #D8A35B;
+            border-radius: 50%;
+            top: 0;
+            left: 0;
+        }
+        .ear {
+            position: absolute;
+            width: 50px;
+            height: 50px;
+            background-color: #D8A35B;
+            border-radius: 50%;
+        }
+        .ear.left {
+            top: -20px;
+            left: 20px;
+            transform: rotate(45deg);
+        }
+        .ear.right {
+            top: -20px;
+            right: 20px;
+            transform: rotate(-45deg);
+        }
+        .eye {
+            position: absolute;
+            width: 20px;
+            height: 20px;
+            background-color: #fff;
+            border-radius: 50%;
+            top: 60px;
+        }
+        .eye.left {
+            left: 50px;
+        }
+        .eye.right {
+            right: 50px;
+        }
+        .eye::before {
+            content: '';
+            position: absolute;
+            width: 10px;
+            height: 10px;
+            background-color: #000;
+            border-radius: 50%;
+            top: 5px;
+            left: 5px;
+        }
+        .nose {
+            position: absolute;
+            width: 20px;
+            height: 20px;
+            background-color: #000;
+            top: 100px;
+            left: 50%;
+            transform: translateX(-50%);
+            border-radius: 50% 50% 0 0;
+        }
+        .whiskers {
+            position: absolute;
+            top: 100px;
+            width: 100px;
+            height: 10px;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+        .whiskers::before, .whiskers::after {
+            content: '';
+            position: absolute;
+            width: 80px;
+            height: 2px;
+            background-color: #000;
+            top: 4px;
+        }
+        .whiskers::before {
+            left: -85px;
+            transform: rotate(-10deg);
+        }
+        .whiskers::after {
+            right: -85px;
+            transform: rotate(10deg);
+        }
+        .mouth {
+            position: absolute;
+            width: 40px;
+            height: 20px;
+            border-bottom: 4px solid #000;
+            border-radius: 0 0 50% 50%;
+            top: 120px;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            background-color: rgb(65, 195, 218);
+        }
+
+        .wavy {
+            position: relative;
+        }
+
+        .wavy span {
+            position: relative;
+            display: inline-block;
+            color: #fff;
+            font-size: 2em;
+            text-transform: uppercase;
+            animation: animate 2s ease-in-out infinite;
+            animation-delay: calc(0.1s * var(--i));
+        }
+
+        @keyframes animate {
+            0% {
+                transform: translateY(0px);
+            }
+
+            20% {
+                transform: translateY(-20px);
+            }
+
+            40%,
+            100% {
+                transform: translateY(0px);
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="wavy"> <h1>
+        <span style="--i:1">M</span>
+        <span style="--i:2">e</span>
+        <span style="--i:3">o</span>
+        <span style="--i:4">W</span>
+        <span style="--i:5">!</span>
+   </h1>
+    </div><br><br>
+  
+
+    <div class="links">
+       
+        <a href="https://www.google.com">Google</a>&nbsp;&nbsp;&nbsp;
+        <a href="https://www.linkedin.com">LinkedIn</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        <a href="https://www.reddit.com">Reddit</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        <a href="https://www.youtube.com"> YouTube </a><br><br>
+        <a href="https://calendar.google.com/">calender</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        <a href="https://vim.rtorr.com/">vim</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        <a href="https://github.com/elli0t43">github</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        <a href="https://wiki.archlinux.org/">archwiki</a><br><br>
+        <a href="https://mankier.com/">mankier</a>&nbsp;&nbsp;
+        <a href="https://devdocs.io/">devdocs</a>
+        <a href="https://reddit.com/r/programming/">programming</a>
+        <a href="https://reddit.com/r/startpages/">startpages</a><br><br>
+    </div><br><br><br><br>
+
+    <div id="catContainer">
+       
+    </div>
+
+    <script>
+        
+        const catContainer = document.getElementById('catContainer');
+
+        // Kiten's Face :)
+        const catFace = document.createElement('div');
+        catFace.className = 'cat';
+        catContainer.appendChild(catFace);
+
+        // Ears
+        const leftEar = document.createElement('div');
+        leftEar.className = 'ear left';
+        catContainer.appendChild(leftEar);
+
+        const rightEar = document.createElement('div');
+        rightEar.className = 'ear right';
+        catContainer.appendChild(rightEar);
+
+        // Eyes
+        const leftEye = document.createElement('div');
+        leftEye.className = 'eye left';
+        catFace.appendChild(leftEye);
+
+        const rightEye = document.createElement('div');
+        rightEye.className = 'eye right';
+        catFace.appendChild(rightEye);
+
+        // Nose
+        const nose = document.createElement('div');
+        nose.className = 'nose';
+        catFace.appendChild(nose);
+
+        // Whiskers
+        const whiskers = document.createElement('div');
+        whiskers.className = 'whiskers';
+        catFace.appendChild(whiskers);
+
+        // Mouth
+        const mouth = document.createElement('div');
+        mouth.className = 'mouth';
+        catFace.appendChild(mouth);
+    </script>
+
+</body>
+</html>
